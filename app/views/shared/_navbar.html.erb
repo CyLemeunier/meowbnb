@@ -1,7 +1,11 @@
 <div class="<%=  params[:action] == "home" ? 'navbar-wagon-fixed' : 'navbar-wagon' %>">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <h3>Meowbnb</h3>
+    <% if params[:action] == "home" %>
+      <h3><i class="fa fa-paw" aria-hidden="true"></i></h3>
+    <% else %>
+      <h3><i class="fa fa-paw" aria-hidden="true"></i> Meowbnb</h3>
+    <%end%>
   <% end %>
 
   <!-- Right Navigation -->
