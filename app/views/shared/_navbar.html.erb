@@ -53,7 +53,7 @@
     <% else %>
 
       <!-- Button (call-to-action) -->
-      <%= link_to t(".top_call_to_action", default: "Sign Up"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+      <%= link_to t(".top_call_to_action", default: "Sign Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
       <!-- Login text link -->
       <%= link_to t(".sign_in", default: "Log In"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
