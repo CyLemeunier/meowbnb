@@ -5,4 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :reservations
   has_many :cats
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :address, presence: true
+  validates :city, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true
 end
