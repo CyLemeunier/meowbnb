@@ -1,1 +1,27 @@
-// Your footer style
+/* Footer design */
+
+.footer {
+  /*font-size: 22px;*/
+  padding: 20px 0;
+  background: #333333;
+  color: white;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  a {
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+  }
+
+  a:hover {
+    color: $yellow;
+  }
+
+  p {
+    margin: 0;
+    padding-right: 40px;
+  }
+}
