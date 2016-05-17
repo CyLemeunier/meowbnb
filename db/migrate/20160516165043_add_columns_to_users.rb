@@ -5,7 +5,5 @@ class AddColumnsToUsers < ActiveRecord::Migration
     add_column :users, :address, :string
     add_column :users, :city, :string
     add_column :users, :rating, :integer
-    add_column :users, :email, :string
-    add_column :users, :password, :string
   end
 end
