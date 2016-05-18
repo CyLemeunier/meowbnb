@@ -7,17 +7,21 @@
       <p>#<%= cat.race.capitalize %></p>
     </div>
     <div class="cat-name">
-      <h2><%= cat.name %></h2>
+      <h2><%= cat.name.capitalize %></h2>
     </div>
     </div>
     <div class="card-content">
     <div class="class card-content-top-items">
-      <%= cl_image_tag "Boris-profile.jpg", class:"card-user avatar" %>
+      <%= image_tag cat.user.photo, class:"card-user avatar" %>
     </div>
       <p><%= cat.description %></p>
     <div class="cat-booking-details">
       <span class="cat-price"><%= cat.price_per_day %>$/Day</span>
+      <ul>
       <i class="fa fa-star cat-rating"></i>
+      <i class="fa fa-star cat-rating"></i>
+      <i class="fa fa-star cat-rating"></i>
+      </ul>
     </div>
   </div>
 </div>

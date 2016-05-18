@@ -1,3 +1,7 @@
+
+# CATEGORIES = ["Cuddles", "Watchcat", "Luxury", "Wingman Cat"]
+# RACES = ["British Shorthair", "Maine Coone", "Sphynx", "Persian", "Siamese", "Street Cat"]
+
 class Cat < ActiveRecord::Base
   belongs_to :user
   has_many :reservations
@@ -11,3 +15,6 @@ class Cat < ActiveRecord::Base
 
   mount_uploader :photo, PhotoUploader
 end
+
+# inclusion: { in: CATEGORIES }
+# inclusion: { in: RACES }
