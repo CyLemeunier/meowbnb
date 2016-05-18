@@ -1,30 +1,47 @@
 
   <div class="container" id="cats_index_page">
-    <div class="row text-center" id="cats_index_title">
-      <h1>Kitties you can play with in Paris !</h1>
-    </div>
-    <div class="container">
-      <div class="row">
-        <% if @cats.count == 1 %>
-          <% @cats.each do |c| %>
-            <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-              <%= render "card", cat: c %>
-            </div>
-          <% end %>
-        <% elsif @cats.count == 2 %>
-          <% @cats.each do |c| %>
-            <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-              <%= render "card", cat: c %>
-            </div>
-          <% end %>
-        <% else %>
-          <% @cats.each do |c| %>
-            <div class="col-xs-12 col-sm-4">
-              <%= render "card", cat: c %>
-            </div>
-          <% end %>
+    <% if @cats.count == 0 %>
+      <div class="row text-center" id="cats_index_title">
+        <h1>No cats found for your search.</h1>
+          <%= form_tag(cats_path, method: :get, class:'form-inline') do %>
+          <%= text_field_tag :city, nil, placeholder: "Paris", class: 'form-control input-lg' %>
+          <%= text_field_tag :checkin, nil, class: 'form-control input-lg', placeholder: "Checkin", data: {provide: 'datepicker'} %>
+          <%= text_field_tag :checkout, nil, class: 'form-control input-lg', placeholder: "Checkout", data: {provide: 'datepicker'} %>
+          <%= submit_tag 'Search', class: "btn btn-primary btn-lg" %>
+          <!-- <select name="" id="" class="form-control input-lg">
+            <option value="1">1 person</option>
+            <option value="2">2 persons</option>
+            <option value="3">3 persons</option>
+          </select> -->
         <% end %>
       </div>
+    <% else %>
+      <div class="row text-center" id="cats_index_title">
+        <h1>Kitties you can play with in Paris !</h1>
+      </div>
+      <div class="container">
+        <div class="row">
+          <% if @cats.count == 1 %>
+            <% @cats.each do |c| %>
+              <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+                <%= render "card", cat: c %>
+              </div>
+            <% end %>
+          <% elsif @cats.count == 2 %>
+            <% @cats.each do |c| %>
+              <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+                <%= render "card", cat: c %>
+              </div>
+            <% end %>
+          <% else %>
+            <% @cats.each do |c| %>
+              <div class="col-xs-12 col-sm-4">
+                <%= render "card", cat: c %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 
