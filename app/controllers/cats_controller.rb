@@ -16,12 +16,19 @@ class CatsController < ApplicationController
     else
       render :new
     end
+
+  def index
+    @cats = Cat.joins(:user).where(users: { city: params[:city] })
   end
 
   private
 
   def cat_create_params
     params.require(:cat).permit(:name, :category, :race, :year_of_birth, :description, :price_per_day, :photo)
+  end
+
+  def cat_params
+    params.permit(:city)
   end
 
 end

@@ -22,12 +22,6 @@
           <%= f.input :email, required: true, autofocus: true %>
         </div>
         <div class="form-inputs">
-          <%= f.input :photo %>
-        </div>
-        <div class="form-inputs">
-          <%= f.input :photo_cache, as: :hidden %>
-        </div>
-        <div class="form-inputs">
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
           <%= f.input :password_confirmation, required: true %>
         </div>
@@ -42,3 +36,4 @@
     <%= render "devise/shared/links" %>
   </div>
 </div>
+
