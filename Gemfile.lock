@@ -193,10 +193,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-datepicker-rails
   bootstrap-sass
-<<<<<<< HEAD
   carrierwave
-=======
->>>>>>> master
   cloudinary
   devise
   figaro
