@@ -1,12 +1,33 @@
-<div class="container">
-  <div class="row">
-    <% @cats.each do |c|%>
-      <div class="col-xs-12 col-sm-4">
-        <%= render "card", cat: c %>
+
+  <div class="container" id="cats_index_page">
+    <div class="row text-center" id="cats_index_title">
+      <h1>Here are all the cats available :</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <% if @cats.count == 1 %>
+          <% @cats.each do |c| %>
+            <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+              <%= render "card", cat: c %>
+            </div>
+          <% end %>
+        <% elsif @cats.count == 2 %>
+          <% @cats.each do |c| %>
+            <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+              <%= render "card", cat: c %>
+            </div>
+          <% end %>
+        <% else %>
+          <% @cats.each do |c| %>
+            <div class="col-xs-12 col-sm-4">
+              <%= render "card", cat: c %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
-</div>
+
 
 
 <!-- <a class="card-link" href="#" ></a> -->
