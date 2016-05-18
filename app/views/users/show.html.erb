@@ -1,0 +1,11 @@
+<div class="container">
+  <h3><%= @user.first_name + " " + @user.last_name %></h3>
+  <p><%= @user.city %></p>
+  <div class="row">
+    <% @user.cats.each do |c|%>
+      <div class="col-xs-12 col-sm-4">
+        <%= render "card", cat: c %>
+      </div>
+    <% end %>
+  </div>
+</div>
