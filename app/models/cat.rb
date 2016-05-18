@@ -8,4 +8,6 @@ class Cat < ActiveRecord::Base
   validates :year_of_birth, presence: true
   validates :description, presence: true
   validates :price_per_day, presence: true
+
+  mount_uploader :photo, PhotoUploader
 end
