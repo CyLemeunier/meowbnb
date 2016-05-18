@@ -8,4 +8,7 @@
       </div>
     <% end %>
   </div>
+  <%if current_user %>
+    <%= link_to "Add a cat", new_cat_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <% end %>
 </div>
