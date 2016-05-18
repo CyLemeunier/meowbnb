@@ -12,7 +12,7 @@
     </div>
     <div class="card-content">
     <div class="class card-content-top-items">
-      <%= image_tag cat.user.photo, class:"card-user avatar" %>
+      <%=link_to(image_tag(cat.user.photo, class:"card-user avatar"), user_path(cat.user)) %>
     </div>
       <p><%= cat.description %></p>
     <div class="cat-booking-details">
