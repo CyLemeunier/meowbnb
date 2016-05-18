@@ -1,12 +1,7 @@
 class CatsController < ApplicationController
 
   def index
-    @users = User.where(city: params[:city])
-    raise
-    puts @users
-    # @cats = Cat.joins(:users).where(users: { city: params[:city] })
-    # (city: Cat.user.city = "Paris")
-    # redirect_to cats_path(@cats)
+    @cats = Cat.joins(:user).where(users: { city: params[:city] })
   end
 
   private
