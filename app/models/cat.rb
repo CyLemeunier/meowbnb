@@ -1,6 +1,6 @@
 
-# CATEGORIES = ["Cuddles", "Watchcat", "Luxury", "Wingman Cat"]
-# RACES = ["British Shorthair", "Maine Coone", "Sphynx", "Persian", "Siamese", "Street Cat"]
+CATEGORIES = ["Mice Exterminator", "Cuddly", "Watchcat", "Luxury", "Wingman Cat", "Celebrity", "Corporate Events", "Drug Detection"]
+RACES = ["British Shorthair", "Maine Coone", "Sphynx", "Persian", "Siamese", "Street Cat"]
 
 class Cat < ActiveRecord::Base
   belongs_to :user
