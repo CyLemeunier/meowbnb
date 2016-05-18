@@ -24,6 +24,10 @@
         <div class="form-inputs">
           <%= f.input :price_per_day %>
         </div>
+        <div class="form-inputs">
+          <%= f.input :photo %>
+        </div>
+        <%= f.input :photo_cache, as: :hidden %>
         <div class="form-actions text-center">
           <%= f.button :submit, "Submit", style: 'width:100%' %>
         </div>
