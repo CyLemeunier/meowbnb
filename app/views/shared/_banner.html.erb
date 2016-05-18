@@ -3,17 +3,17 @@
     <div>
       <h1>MeowBnB</h1>
       <p>Find the right cat for your paw</p>
-      <form action="#" class="form-inline">
-        <input type="text" class="form-control input-lg" placeholder="City">
-        <input type="text" class="form-control input-lg" placeholder="Checkin" data-provide='datepicker'>
-        <input type="text" class="form-control input-lg" placeholder="Checkout" data-provide='datepicker'>
+      <%= form_tag(cats_path, method: :get, class:'form-inline') do %>
+        <%= text_field_tag :city, nil, placeholder: "Paris", class: 'form-control input-lg' %>
+        <%= text_field_tag :checkin, nil, class: 'form-control input-lg', placeholder: "Checkin", data: {provide: 'datepicker'} %>
+        <%= text_field_tag :checkout, nil, class: 'form-control input-lg', placeholder: "Checkout", data: {provide: 'datepicker'} %>
+        <%= submit_tag 'Search', class: "btn btn-primary btn-lg" %>
         <!-- <select name="" id="" class="form-control input-lg">
           <option value="1">1 person</option>
           <option value="2">2 persons</option>
           <option value="3">3 persons</option>
         </select> -->
-        <input type="submit" class="btn btn-primary btn-lg" value="Search">
-      </form>
+      <% end %>
     </div>
   </div>
 </div>
