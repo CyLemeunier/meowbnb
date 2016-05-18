@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path 'boris_cat.jpg' %>);">
+  <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cat.photo %>);">
     <div class="cat-categories">
       <p><%= cat.category %></p>
     </div>
@@ -9,13 +9,12 @@
     <div class="cat-name">
       <h2><%= cat.name %></h2>
     </div>
-    </div>
-    <div class="card-content">
-      <div class="cat-booking-details">
-        <span class="cat-price">$<%= cat.price_per_day %></span>
-        <!-- Rajouter les Cat Ratings -->
-        <i class="fa fa-star cat-rating"></i>
-      </div>
+  </div>
+  <div class="card-content">
+    <div class="cat-booking-details">
+      <span class="cat-price">$<%= cat.price_per_day %></span>
+      <!-- Rajouter les Cat Ratings -->
+      <i class="fa fa-star cat-rating"></i>
     </div>
   </div>
 </div>
