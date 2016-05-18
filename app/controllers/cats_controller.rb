@@ -16,6 +16,7 @@ class CatsController < ApplicationController
     else
       render :new
     end
+  end
 
   def index
     @cats = Cat.joins(:user).where(users: { city: params[:city] })
