@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     resources :reservations
   end
 
+
+  get 'cats/categories/:category', to: 'cats#display_by_category', as: 'category'
+
+  get 'cats/races/:race', to: 'cats#display_by_race', as: 'race'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
