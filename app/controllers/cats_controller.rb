@@ -53,6 +53,14 @@ class CatsController < ApplicationController
     @cats = Cat.where(race: params[:race])
   end
 
+  def destroy
+    # le chat de la carte qui appartient à ce user
+
+    @cat = Cat.find(params[:id])
+    @cat.destroy
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def cat_create_params
