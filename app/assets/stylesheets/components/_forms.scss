@@ -1,16 +1,16 @@
 .form-button {
   padding: 0 20px;
   line-height: 40px;
-  color: $dark-grey;
+  color: $white;
   font-size: 14px;
   background-color: $blue;
-  border: 1px solid $dark-grey;
+  // border: 1px solid $dark-grey;
 }
 
 .form-button:hover {
-  color: $dark-grey !important;
+  // color: $dark-grey !important;
   background-color: $blue !important;
-  border-color: $dark-grey !important;
+  // border-color: $dark-grey !important;
   opacity: 0.8;
 }
 
