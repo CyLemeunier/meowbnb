@@ -26,6 +26,14 @@ class CatsController < ApplicationController
     @cat = Cat.find(params[:id])
   end
 
+  def display_by_category
+    @cats = Cat.where(category: params[:category])
+  end
+
+  def display_by_race
+    @cats = Cat.where(race: params[:race])
+  end
+
   private
 
   def cat_create_params

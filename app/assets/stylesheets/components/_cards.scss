@@ -10,6 +10,11 @@
   position: relative;
 }
 
+.card-image:hover {
+  opacity: 0.8;
+  transition: opacity .2s ease-out;
+}
+
 .cat-categories p {
   position: absolute;
   top: 10px;
