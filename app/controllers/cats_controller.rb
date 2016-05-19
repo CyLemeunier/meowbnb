@@ -1,5 +1,5 @@
 CATEGORIES = ["Cuddly", "Scary", "Seductive", "Celebrity", "Luxury", "Business", "Drug", "Hunter"]
-RACES = ["Siamois", "Persan", "Bengal", "Peterbald", "Unkown"]
+RACES = ["Siamois", "Persian", "Bengal", "Peterbald", "Unkown"]
 
 class CatsController < ApplicationController
 
@@ -20,6 +20,10 @@ class CatsController < ApplicationController
 
   def index
     @cats = Cat.joins(:user).where(users: { city: params[:city] })
+  end
+
+  def show
+    @cat = Cat.find(params[:id])
   end
 
   private
