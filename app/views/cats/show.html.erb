@@ -1,0 +1,46 @@
+<div class="container" id="cats_show_page">
+  <div class="summary">
+    <div id="name">
+      <h2><%= @cat.name.capitalize %></h2>
+    </div>
+    <p><%= @cat.description.capitalize %></p>
+
+    <span id="cat age"></span>
+    <span class="cat-category" id="category" >#<%= @cat.category %></span>
+    <span class="cat-race" id="race">#<%= @cat.race.capitalize %></span>
+    <p id="cat-price">$<%= @cat.price_per_day %>/Day</p>
+  </div>
+  <div class="container cat-details">
+    <div class="row">
+      <div class="col xs-12 col-sm-12 col-md-8">
+        <p>This is how to take care of <%= @cat.name %></p>
+      </div>
+      <div class="col xs-12 col-sm-12 col-md-4">
+        <p>Book this cat now!</p>
+        <%= render 'form_book_show_cat' %>
+      </div>
+    </div>
+  </div>
+  <div class="container cat-reviews-details">
+    <p>Reviews for <%= @cat.name %></p>
+    <ul style="list-style-type:none">
+      <ul class="list-inline">
+        <li>HATE this cat! Would never recommend 1</li>
+        <i class="fa fa-star"></i>
+      </ul>
+      <ul class="list-inline">
+        <li>The worst feline in feline history</li>
+        <i class="fa fa-star"></i>
+      </ul>
+      <ul class="list-inline">
+        <li>Do NOT rent this cat if you mean to stay alive</li>
+        <i class="fa fa-star"></i>
+      </ul>
+
+
+    </ul>
+  </div>
+</div>
+
+
+
