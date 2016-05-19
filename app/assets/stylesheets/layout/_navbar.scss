@@ -85,6 +85,10 @@
     border-top: 1px solid $white;
   }
 
+  .modal-backdrop {
+    z-index: 0;
+  }
+
 }
 
 /* Navbar logo */
