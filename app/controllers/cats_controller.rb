@@ -1,7 +1,5 @@
-CATEGORIES = ["Cuddly", "Scary", "Seductive", "Celebrity", "Luxury", "Business", "Drug", "Hunter"]
-RACES = ["Siamois", "Persian", "Bengal", "Peterbald", "Unkown"]
-
 class CatsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def new
     @cat = Cat.new
@@ -20,10 +18,15 @@ class CatsController < ApplicationController
 
   def index
     @cats = Cat.joins(:user).where(users: { city: params[:city] })
+    @checkin = params[:checkin]
+    @checkout = params[:checkout]
   end
 
   def show
+    @reservation = Reservation.new
     @cat = Cat.find(params[:id])
+    @checkin = params[:checkin].blank? ? Date.today.strftime('%Y-%m-%d') : params[:checkin]
+    @checkout = params[:checkout].blank? ? Date.today.strftime('%Y-%m-%d') : params[:checkout]
   end
 
   private

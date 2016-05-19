@@ -5,8 +5,8 @@
       <p>Find the right cat for your paw</p>
       <%= form_tag(cats_path, method: :get, class:'form-inline') do %>
         <%= text_field_tag :city, nil, placeholder: "Paris", class: 'form-control input-lg' %>
-        <%= text_field_tag :checkin, nil, class: 'form-control input-lg', placeholder: "Checkin", data: {provide: 'datepicker'} %>
-        <%= text_field_tag :checkout, nil, class: 'form-control input-lg', placeholder: "Checkout", data: {provide: 'datepicker'} %>
+        <%= text_field_tag :checkin, nil, class: 'form-control input-lg datepicker', placeholder: "Checkin"  %>
+        <%= text_field_tag :checkout, nil, class: 'form-control input-lg datepicker', placeholder: "Checkout" %>
         <%= submit_tag 'Search', class: "btn btn-primary btn-lg" %>
         <!-- <select name="" id="" class="form-control input-lg">
           <option value="1">1 person</option>
