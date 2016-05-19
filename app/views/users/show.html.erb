@@ -1,4 +1,6 @@
 <%if @user === current_user %>
+
+<div class="container">
   <div class="tabs">
     <%= link_to "Your Listings", listings_path(@user.cats), class: "tab active" %>
     <%= link_to "Your Bookings", listings_path(@user.cats), class: "tab" %>
@@ -21,7 +23,9 @@
     <%= link_to "Add a cat", new_cat_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
     <%= link_to "Edit profile", edit_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
     <% end %>
+  </div>
 </div>
+
 
   <!-- <a class="tab" href="#">
     <h3>Your Bookings</h3>
