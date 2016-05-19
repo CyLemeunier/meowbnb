@@ -33,12 +33,22 @@
   position: fixed;
   left: 0px;
   top: 0px;
-  z-index: 1;
+  z-index: 1; //For the Log In modal to appear
   width: 100%;
 
   h3 {
     margin: 0;
   }
+
+  // .modal-content {
+  //   h4, label {
+  //     color: $dark-grey;
+  //   }
+  // }
+
+  // .modal.fade.in {
+  //   z-index: 5000;
+  // }
 
   .navbar-wagon-brand {
     color: $white;

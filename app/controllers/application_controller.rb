@@ -5,6 +5,22 @@ class ApplicationController < ActionController::Base
 
   after_filter :store_location
 
+  #Redefining these methods to use Log In form in Cats pages
+  helper_method :resource_name, :resource, :devise_mapping
+
+  def resource_name
+    :user
+  end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
+  #End of Devise methods
+
   def store_location
     # store last url - this is needed for post-login redirect to whatever the user last visited.
     return unless request.get?
