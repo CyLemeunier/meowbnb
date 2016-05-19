@@ -24,19 +24,19 @@
           <% if @cats.count == 1 %>
             <% @cats.each do |c| %>
               <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-                <%= render "card", cat: c %>
+                <%= render "card", cat: c, checkin: @checkin, checkout: @checkout %>
               </div>
             <% end %>
           <% elsif @cats.count == 2 %>
             <% @cats.each do |c| %>
               <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-                <%= render "card", cat: c %>
+                <%= render "card", cat: c, checkin: @checkin, checkout: @checkout %>
               </div>
             <% end %>
           <% else %>
             <% @cats.each do |c| %>
               <div class="col-xs-12 col-sm-4">
-                <%= render "card", cat: c %>
+                <%= render "card", cat: c, checkin: @checkin, checkout: @checkout %>
               </div>
             <% end %>
           <% end %>

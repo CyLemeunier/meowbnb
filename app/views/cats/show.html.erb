@@ -13,10 +13,11 @@
   <div class="container cat-details">
     <div class="row">
       <div class="col xs-12 col-sm-12 col-md-8">
-      <p>This is how to take care of <%= @cat.name %></p>
+        <p>This is how to take care of <%= @cat.name %></p>
       </div>
-    <div class="col xs-12 col-sm-12 col-md-4">
-      <p>Book this cat now!</p>
+      <div class="col xs-12 col-sm-12 col-md-4">
+        <p>Book this cat now!</p>
+        <%= render 'form_book_show_cat', checkin: @checkin, checkout: @checkout %>
       </div>
     </div>
   </div>

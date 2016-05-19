@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: :home
+
+
   #Redefining these methods to use Log In form in Pages pages
   helper_method :resource_name, :resource, :devise_mapping
 
