@@ -3,6 +3,21 @@
   position: relative;
 }
 
+.cat-picture {
+  position:relative;
+}
+
+.cats-name h2 {
+  font-size: 28px;
+  background-color: rgba(60,63,64,0.7);
+  color: $white;
+  position: absolute;
+  padding: 1px 5px 1px 5px;
+  margin: 0px 0px 0px 0px;
+  bottom: 0px;
+  font-family: $header-font;
+}
+
 .card-image {
   height: 240px;
   background-size: cover;
@@ -45,16 +60,6 @@
   background-color: $blue;
   display: -webkit-inline-box;
   color: $white;
-}
-
-.cat-name h2 {
-  font-size: 28px;
-  background-color: rgba(60,63,64,0.7);
-  position: absolute;
-  padding: 1px 5px 1px 5px;
-  margin: 0px 0px 0px 0px;
-  bottom: 0px;
-  font-family: $header-font;
 }
 
 .card-content {
