@@ -11,14 +11,6 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <!-- Search form -->
-  <!--   <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form> -->
-
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
@@ -55,7 +47,7 @@
       <%= link_to t(".top_call_to_action", default: "Sign Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
       <!-- Button (call-to-action) -->
-      <%= link_to t(".top_call_to_action", default: "Log In"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+      <%= link_to t(".top_call_to_action", default: "Log In"), "#", class: "navbar-wagon-item navbar-wagon-button btn", data: {toggle: "modal", target: "#logInModal"} %>
 
     <% end %>
   </div>

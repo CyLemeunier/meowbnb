@@ -33,12 +33,22 @@
   position: fixed;
   left: 0px;
   top: 0px;
-  z-index: 1;
+  z-index: 1; //For the Log In modal to appear
   width: 100%;
 
   h3 {
     margin: 0;
   }
+
+  // .modal-content {
+  //   h4, label {
+  //     color: $dark-grey;
+  //   }
+  // }
+
+  // .modal.fade.in {
+  //   z-index: 5000;
+  // }
 
   .navbar-wagon-brand {
     color: $white;
@@ -85,6 +95,10 @@
     border-top: 1px solid $white;
   }
 
+  .modal-backdrop {
+    z-index: 0;
+  }
+
 }
 
 /* Navbar logo */
@@ -125,9 +139,7 @@
 .navbar-wagon-button {
   margin-left: 10px;
   padding: 0 20px;
-  // border-radius: 10em;
   line-height: 40px;
-  // background-color: #D23333;
   color: $dark-grey;
   font-size: 14px;
   border: 1px solid $dark-grey;
