@@ -1,44 +1,75 @@
 <div class="container" id="cats_show_page">
-  <div class="summary">
-    <div id="name">
-      <h2><%= @cat.name.capitalize %></h2>
+  <div class="container summary">
+    <div class="bio">
+      <h2 id="name"><%= @cat.name.capitalize %></h2>
+      <p><%= @cat.description.capitalize %></p>
+      <span id="cat age"></span>
+      <p id="cat-price">$<%= @cat.price_per_day %>/Day</p>
     </div>
-    <p><%= @cat.description.capitalize %></p>
-
-    <span id="cat age"></span>
-    <span class="cat-category" id="category" >#<%= @cat.category %></span>
-    <span class="cat-race" id="race">#<%= @cat.race.capitalize %></span>
-    <p id="cat-price">$<%= @cat.price_per_day %>/Day</p>
+    <div class="img-filter">
+      <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cloudinary_url(@cat.photo) %>);">
+      </div>
+      <span class="cat-category" id="category" >#<%= @cat.category %></span>
+      <span class="cat-race" id="race">#<%= @cat.race.capitalize %></span>
+    </div>
   </div>
   <div class="container cat-details">
     <div class="row">
-      <div class="col xs-12 col-sm-12 col-md-8">
-        <p>This is how to take care of <%= @cat.name %></p>
+      <div class="col xs-12 col-sm-12 col-md-8" style="padding-right: 70px;"
+>
+        <div class="section">
+           <p id="sub-title">How to take care of <%= @cat.name %></p>
+           <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+        </div>
+        <hr>
+        <div class="section">
+           <p id="sub-title">Booking rules <%= @cat.name %></p>
+           <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+           </p>
+        </div>
+        <hr>
+        <div class="row section">
+          <div class='col xs-12 col-sm-3 col-md-3'>
+            <div id="sub-title">
+              <p id="bio-title">Meet the owner!</p>
+            </div>
+            <div id='owner-avatar' >
+              <%=link_to(image_tag(@cat.user.photo, class:"avatar-large", id:"bio-avatar"), user_path(@cat.user)) %>
+            </div>
+          </div>
+          <div class='col xs-12 col-sm-9 col-md-9' id="owner-bio">
+            <div>
+              <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+          </div>
+        </div>
       </div>
+      <hr>
       <div class="col xs-12 col-sm-12 col-md-4">
-        <p>Book this cat now!</p>
+        <p id="sub-title">Book this cat now!</p>
         <%= render 'form_book_show_cat', checkin: @checkin, checkout: @checkout %>
       </div>
     </div>
+    <hr>
   </div>
   <div class="container cat-reviews-details">
-    <p id="reviews-title">Reviews for <%= @cat.name %></p>
-    <ul style="list-style-type:none">
-      <ul class="list-inline">
-        <li>HATE this cat! Would never recommend 1</li>
-        <i class="fa fa-star"></i>
+    <div class="all-reviews">
+      <p id="reviews-title">Reviews for <%= @cat.name %></p>
+      <ul class="review-text" style="list-style-type:none">
+        <ul class="list-inline">
+          <li>HATE this cat! Would never recommend 1</li>
+          <i class="fa fa-star"></i>
+        </ul>
+        <ul class="list-inline">
+          <li>The worst feline in feline history</li>
+          <i class="fa fa-star"></i>
+        </ul>
+        <ul class="list-inline">
+          <li>Do NOT rent this cat if you mean to stay alive</li>
+          <i class="fa fa-star"></i>
+        </ul>
       </ul>
-      <ul class="list-inline">
-        <li>The worst feline in feline history</li>
-        <i class="fa fa-star"></i>
-      </ul>
-      <ul class="list-inline">
-        <li>Do NOT rent this cat if you mean to stay alive</li>
-        <i class="fa fa-star"></i>
-      </ul>
-
-
-    </ul>
+    </div>
   </div>
 </div>
 
