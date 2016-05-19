@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row text-center">
+    <h2>Modify your cat's profile :</h2>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+      <%= simple_form_for @cat do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :name %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :category, as: :select, collection: Cat::CATEGORIES, include_blank:  "Select a category"  %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :race, as: :select, collection: Cat::RACES, include_blank:  "Select a race" %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :year_of_birth %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :description %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :price_per_day %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :photo %>
+        </div>
+        <%= f.input :photo_cache, as: :hidden %>
+        <div class="form-actions text-center">
+          <%= f.button :submit, "Change !", style: 'width:100%' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

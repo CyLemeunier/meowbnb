@@ -14,6 +14,14 @@
     <div class="cat-booking-details">
       <span class="cat-price">$<%= cat.price_per_day %>/Day</span>
       <!-- Rajouter les Cat Ratings -->
+      <% if current_user == @user %>
+        <%= link_to "Delete this cat", cat_path(cat),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+      <% end %>
+      <% if current_user == @user %>
+        <%= link_to "Edit your cat", edit_cat_path(cat) %>
+      <% end %>
       <i class="fa fa-star cat-rating"></i>
     </div>
   </div>
