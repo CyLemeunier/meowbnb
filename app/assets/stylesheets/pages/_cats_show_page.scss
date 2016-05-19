@@ -1,0 +1,71 @@
+#cats_show_page {
+  min-height: 700px;
+}
+
+.summary {
+  background-color: $light-grey;
+  position: relative;
+  padding: 15px 20px 15px 20px;
+  margin-top: 30px;
+}
+
+#name {
+  margin-bottom: 15px;
+}
+
+.cat-category {
+  position: absolute;
+  top: 10px;
+  right: -5px;
+  padding: 1px 5px 1px 5px;
+  font-size: 13px;
+  background-color: $yellow;
+  display: -webkit-inline-box;
+  color: $white;
+}
+
+#category:hover {
+  background-color: #EDDB68;
+}
+
+#race:hover {
+  background-color: #69cabf;
+
+}
+
+.cat-race {
+  position: absolute;
+  top: 35px;
+  right: -5px;
+  padding: 1px 5px 1px 5px;
+  font-size: 13px;
+  background-color: $blue;
+  display: -webkit-inline-box;
+  color: $white;
+}
+
+.cat-name h2 {
+  font-size: 28px;
+  background-color: rgba(60,63,64,0.7);
+  position: absolute;
+  padding: 1px 5px 1px 5px;
+  margin: 0px 0px 0px 0px;
+  bottom: 0px;
+  font-family: $header-font;
+}
+
+#cat-price {
+  font-weight: bold;
+}
+
+.cat-details {
+  padding-top: 50px;
+}
+
+.cat-reviews-details {
+  background-color: $light-grey;
+}
+
+.fa-star {
+  color: $yellow;
+}

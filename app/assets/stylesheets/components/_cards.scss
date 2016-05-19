@@ -1,7 +1,5 @@
 .card {
-
   background-size: cover !important;
-  color: $white;
   position: relative;
 }
 
@@ -20,17 +18,20 @@
   font-size: 13px;
   background-color: $yellow;
   display: -webkit-inline-box;
+  color: $white;
 }
 
-#category:hover {
+#categories:hover {
   background-color: #EDDB68;
+  color: $white;
 }
 
-#race:hover {
+#races:hover {
   background-color: #69cabf;
+  color: $white;
 }
 
-.cat-race p {
+.cat-races p {
   position: absolute;
   top: 35px;
   right: -5px;
@@ -38,6 +39,7 @@
   font-size: 13px;
   background-color: $blue;
   display: -webkit-inline-box;
+  color: $white;
 }
 
 .cat-name h2 {
