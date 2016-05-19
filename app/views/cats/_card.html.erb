@@ -21,7 +21,9 @@
   </div>
   <div class="card-content">
     <div class="class card-content-top-items">
-      <%=link_to(image_tag(cat.user.photo, class:"card-user avatar"), user_path(cat.user)) %>
+      <%= link_to user_path(cat.user) do %>
+        <div style="background-image: url(<%= cat.user.photo %>); height: 40px; width: 40px; background-size: cover;" class="card-user avatar"></div>
+      <% end %>
     </div>
       <p><%= cat.description %></p>
     <div class="cat-booking-details">
