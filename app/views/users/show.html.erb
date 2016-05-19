@@ -1,3 +1,11 @@
+<%if @user === current_user %>
+  <div class="tabs">
+    <%= link_to "Your Listings", listings_path(@user.cats), class: "tab active" %>
+    <%= link_to "Your Bookings", listings_path(@user.cats), class: "tab" %>
+    <%= link_to "Profile", listings_path(@user.cats), class: "tab" %>
+  </div>
+<% end %>
+
 <div class="container" id="users_show_page">
   <h3><%= @user.first_name + " " + @user.last_name %></h3>
   <p><%= @user.city %></p>
@@ -14,3 +22,13 @@
     <%= link_to "Edit profile", edit_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
     <% end %>
 </div>
+
+  <!-- <a class="tab" href="#">
+    <h3>Your Bookings</h3>
+  </a>
+  <a class="tab" href="#">
+    <h3>Your Listings</h3>
+  </a>
+  <a class="tab" href="#">
+    <h3>Inbox</h3>
+  </a> -->
