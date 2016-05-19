@@ -1,14 +1,17 @@
 <div class="container" id="cats_show_page">
-  <div class="summary">
-    <div id="name">
-      <h2><%= @cat.name.capitalize %></h2>
+  <div class="container summary">
+    <div class="bio">
+      <h2 id="name"><%= @cat.name.capitalize %></h2>
+      <p><%= @cat.description.capitalize %></p>
+      <span id="cat age"></span>
+      <p id="cat-price">$<%= @cat.price_per_day %>/Day</p>
     </div>
-    <p><%= @cat.description.capitalize %></p>
-
-    <span id="cat age"></span>
-    <span class="cat-category" id="category" >#<%= @cat.category %></span>
-    <span class="cat-race" id="race">#<%= @cat.race.capitalize %></span>
-    <p id="cat-price">$<%= @cat.price_per_day %>/Day</p>
+    <div class="img-filter">
+      <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cloudinary_url(@cat.photo) %>);">
+      </div>
+      <span class="cat-category" id="category" >#<%= @cat.category %></span>
+      <span class="cat-race" id="race">#<%= @cat.race.capitalize %></span>
+    </div>
   </div>
   <div class="container cat-details">
     <div class="row">
@@ -22,23 +25,23 @@
     </div>
   </div>
   <div class="container cat-reviews-details">
-    <p id="reviews-title">Reviews for <%= @cat.name %></p>
-    <ul style="list-style-type:none">
-      <ul class="list-inline">
-        <li>HATE this cat! Would never recommend 1</li>
-        <i class="fa fa-star"></i>
+    <div class="all-reviews">
+      <p id="reviews-title">Reviews for <%= @cat.name %></p>
+      <ul style="list-style-type:none">
+        <ul class="list-inline">
+          <li>HATE this cat! Would never recommend 1</li>
+          <i class="fa fa-star"></i>
+        </ul>
+        <ul class="list-inline">
+          <li>The worst feline in feline history</li>
+          <i class="fa fa-star"></i>
+        </ul>
+        <ul class="list-inline">
+          <li>Do NOT rent this cat if you mean to stay alive</li>
+          <i class="fa fa-star"></i>
+        </ul>
       </ul>
-      <ul class="list-inline">
-        <li>The worst feline in feline history</li>
-        <i class="fa fa-star"></i>
-      </ul>
-      <ul class="list-inline">
-        <li>Do NOT rent this cat if you mean to stay alive</li>
-        <i class="fa fa-star"></i>
-      </ul>
-
-
-    </ul>
+    </div>
   </div>
 </div>
 

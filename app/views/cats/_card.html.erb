@@ -1,6 +1,6 @@
 <div class="card">
   <div class="cat-picture">
-    <%= link_to cat_path(cat.id) do %>
+    <%= link_to cat_path(cat.id, checkin: checkin, checkout: checkout) do %>
       <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cloudinary_url(cat.photo) %>);">
       </div>
     <% end %>
@@ -32,7 +32,7 @@
       <i class="fa fa-star cat-rating"></i>
       </ul>
     </div>
-    <%= link_to "aller voir", cat_path(cat, checkin: checkin, checkout: checkout) %>
+
   </div>
 </div>
 
