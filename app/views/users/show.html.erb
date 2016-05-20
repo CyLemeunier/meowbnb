@@ -1,25 +1,22 @@
-<%if @user === current_user %>
+<div class="container">
 
-  <div class="container">
-
-    <div class="top-title-alignment">
-      <div style="background-image: url(<%= @user.photo %>); height: 60px; width: 60px; background-size: cover !important;" class="avatar">
-      </div>
-      <div class="user-title">
-        <h3><%= @user.first_name + " " + @user.last_name %></h3>
-        <p><%= @user.city %></p>
-      </div>
+  <div class="top-title-alignment">
+    <div style="background-image: url(<%= @user.photo %>); height: 60px; width: 60px; background-size: cover !important;" class="avatar">
     </div>
-
-
-
-    <div class="tabs">
-      <%= link_to "Your cats", listings_path(@user.cats), class: "tab active", id: "your-cats-button" %>
-      <%= link_to "Your Bookings", listings_path(@user.cats), class: "tab" %>
-      <%= link_to "Edit Profile", '#', class: "tab", id: "edit-profile-button" %>
+    <div class="user-title">
+      <h3><%= @user.first_name + " " + @user.last_name %></h3>
+      <p><%= @user.city %></p>
     </div>
   </div>
-<% end %>
+  <%if @user === current_user %>
+    <div class="tabs">
+      <%= link_to "Your cats", '#', class: "tab active", id: "your-cats-button" %>
+      <%= link_to "Your Bookings", '#', class: "tab", id: "your-bookings-button" %>
+      <%= link_to "Edit Profile", '#', class: "tab", id: "edit-profile-button" %>
+    </div>
+  <% end %>
+</div>
+
 
 <div class="container" id="users_show_page">
 
@@ -50,23 +47,84 @@
     </div>
   </div>
 
+  <div id="my-bookings" class="container hidden">
+    <h2>People who booked your cats</h2>
+    <div class="container">
+      <% @reservations_own_cats.each do |resa| %>
+
+        <div style="display:flex; align-items:center; justify-content:space-around;">
+
+          <div class="card-image-no-hover avatar" style="height: 100px; width:100px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cloudinary_url(resa.user.photo) %>);">
+          </div>
+
+
+          <p>Duration : <%= resa.start_date %> - <%= resa.end_date %></p>
+          <p>Price : <%= resa.price %>$</p>
+          <p>By : <%= resa.user.first_name.capitalize %> <%= resa.user.last_name.capitalize %></p>
+
+          <div>
+            <%= simple_form_for([resa.cat, resa]) do |form| %>
+              <%= form.input :user_review, :label => "Content" %>
+              <%= form.input :user_rating, as: :select, collection: Reservation::RATING, include_blank:  "Select a rating", :label => "Rating" %>
+              <%= form.button :submit, "Review !", class: 'form-button' %>
+            <% end %>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+    <hr>
+
+    <h2>Cats you've booked</h2>
+    <% @reservations_done_user.each do |resa| %>
+      <div style="display:flex; align-items:center; justify-content:space-around;">
+
+        <div class="card-image-no-hover avatar" style="height: 100px; width:100px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cloudinary_url(resa.cat.photo) %>);">
+        </div>
+
+        <p>Duration : <%= resa.start_date %> - <%= resa.end_date %></p>
+        <p>Price : <%= resa.price %>$</p>
+        <p>Cat : <%= resa.cat.name %></p>
+        <div>
+          <%= simple_form_for([resa.cat, resa]) do |form| %>
+            <%= form.input :cat_review, :label => "Content" %>
+            <%= form.input :cat_rating, as: :select, collection: Reservation::RATING, include_blank:  "Select a rating" %>
+            <%= form.button :submit, "Review !", class: 'form-button' %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
   <% content_for :after_js do %>
     <script>
-      $("#edit-profile-button").on("click", function(event) {
-        event.preventDefault();
-        $(".tabs > a").removeClass("active");
-        $("#edit-profile-button").addClass("active");
-        $("#my-cats").addClass("hidden")
-        $("#edit-form").removeClass("hidden")
-      });
-
       $("#your-cats-button").on("click", function(event) {
         event.preventDefault();
         $(".tabs > a").removeClass("active");
         $("#your-cats-button").addClass("active");
         $("#my-cats").removeClass("hidden")
+        $("#my-bookings").addClass("hidden")
         $("#edit-form").addClass("hidden")
       });
+
+      $("#your-bookings-button").on("click", function(event) {
+        event.preventDefault();
+        $(".tabs > a").removeClass("active");
+        $("#your-bookings-button").addClass("active");
+        $("#my-cats").addClass("hidden")
+        $("#my-bookings").removeClass("hidden")
+        $("#edit-form").addClass("hidden")
+      });
+
+      $("#edit-profile-button").on("click", function(event) {
+        event.preventDefault();
+        $(".tabs > a").removeClass("active");
+        $("#edit-profile-button").addClass("active");
+        $("#my-cats").addClass("hidden")
+        $("#my-bookings").addClass("hidden")
+        $("#edit-form").removeClass("hidden")
+      });
+
     </script>
   <% end %>
 </div>
