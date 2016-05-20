@@ -1,47 +1,72 @@
 <%if @user === current_user %>
 
   <div class="container">
+
+    <div class="top-title-alignment">
+      <div style="background-image: url(<%= @user.photo %>); height: 60px; width: 60px; background-size: cover !important;" class="avatar">
+      </div>
+      <div class="user-title">
+        <h3><%= @user.first_name + " " + @user.last_name %></h3>
+        <p><%= @user.city %></p>
+      </div>
+    </div>
+
+
+
     <div class="tabs">
-      <%= link_to "Your Listings", listings_path(@user.cats), class: "tab active" %>
+      <%= link_to "Your cats", listings_path(@user.cats), class: "tab active", id: "your-cats-button" %>
       <%= link_to "Your Bookings", listings_path(@user.cats), class: "tab" %>
-      <%= link_to "Profile", listings_path(@user.cats), class: "tab" %>
+      <%= link_to "Edit Profile", '#', class: "tab", id: "edit-profile-button" %>
     </div>
   </div>
 <% end %>
 
 <div class="container" id="users_show_page">
 
-  <div class="top-title-alignment">
-
-    <div style="background-image: url(<%= @user.photo %>); height: 60px; width: 60px; background-size: cover !important;" class="avatar">
-    </div>
-    <div class="user-title">
-      <h3><%= @user.first_name + " " + @user.last_name %></h3>
-      <p><%= @user.city %></p>
-    </div>
-
-    <div class="user-buttons">
-      <%if current_user == @user %>
-        <%= link_to "Add a cat", new_cat_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-        <%= link_to "Edit profile", edit_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+  <div id="my-cats">
+    <div class="row">
+      <% @user.cats.each do |c|%>
+        <div class="col-xs-12 col-sm-4">
+          <%= render "card", cat: c %>
+        </div>
       <% end %>
     </div>
-
-  </div>
-
-  <div class="row">
-    <% @user.cats.each do |c|%>
+    <div class="row">
       <div class="col-xs-12 col-sm-4">
-        <%= render "card", cat: c %>
+        <%if current_user == @user %>
+          <%= link_to "Add a cat", new_cat_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 
-  <div>
-    <ul>
-      <% @user.reservations.each do |reservation| %>
-        <li><%= reservation.start_date %></li>
-      <% end %>
-    </ul>
+  <div id="edit-form" class="edit-user-form hidden">
+    <div class="row">
+        <%= render "devise/registrations/edit_user_form_in_profile" %>
+    </div>
+    <div class="row text-center">
+      <h5>Or</h5>
+      <%= button_to "Delete my account", registration_path(resource_name), method: :delete, class: "btn form-button light-padding", data: { confirm: "Are you sure?" }, style: 'width:100%' %>
+    </div>
   </div>
+
+  <% content_for :after_js do %>
+    <script>
+      $("#edit-profile-button").on("click", function(event) {
+        event.preventDefault();
+        $(".tabs > a").removeClass("active");
+        $("#edit-profile-button").addClass("active");
+        $("#my-cats").addClass("hidden")
+        $("#edit-form").removeClass("hidden")
+      });
+
+      $("#your-cats-button").on("click", function(event) {
+        event.preventDefault();
+        $(".tabs > a").removeClass("active");
+        $("#your-cats-button").addClass("active");
+        $("#my-cats").removeClass("hidden")
+        $("#edit-form").addClass("hidden")
+      });
+    </script>
+  <% end %>
 </div>

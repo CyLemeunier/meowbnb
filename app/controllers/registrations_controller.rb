@@ -3,6 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
   #DO NOT Redefe helper methods in this Controller
   #Otherwise, Sign up and Edit don't work anymore
 
+
   private
 
   def sign_up_params
@@ -12,4 +13,12 @@ class RegistrationsController < Devise::RegistrationsController
   def account_update_params
     params.require(:user).permit(:first_name, :last_name, :address, :city, :email, :password, :password_confirmation, :current_password, :photo, :photo_cache)
   end
+
+  protected
+
+  def after_update_path_for(resource)
+      user_path(resource)
+
+  end
 end
+
