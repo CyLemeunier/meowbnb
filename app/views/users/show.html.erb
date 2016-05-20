@@ -48,7 +48,7 @@
   </div>
 
   <div id="my-bookings" class="container hidden">
-    <h2>People who booked your cats</h2>
+    <h4><li>People who booked your cats</li></h4>
     <div class="container">
       <% @reservations_own_cats.each do |resa| %>
 
@@ -75,7 +75,7 @@
     </div>
     <hr>
 
-    <h2>Cats you've booked</h2>
+    <h4><li>Cats you've booked</li></h4>
     <% @reservations_done_user.each do |resa| %>
       <div style="display:flex; align-items:center; justify-content:space-around;">
 
