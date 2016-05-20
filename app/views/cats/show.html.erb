@@ -81,8 +81,8 @@
           </div>
           <div class='col xs-12 col-sm-9 col-md-9' id="owner-bio">
             <div>
-              <p id="sub-title">Meet the owner!</p>
-              <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              <p id="sub-title">Meet the owner: <%= @cat.user.first_name%></p>
+              <p class="text"><%= @cat.user.bio %></p>
             </div>
           </div>
           <hr>

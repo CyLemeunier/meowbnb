@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :cats
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :bio, presence: true
   validates :address, presence: true
   validates :city, presence: true
   # validates :email, presence: true, uniqueness: true
