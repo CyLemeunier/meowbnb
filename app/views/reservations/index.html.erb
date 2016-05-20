@@ -1,1 +1,40 @@
-<h1>affichage des bookings</h1>
+<div class="container">
+  <h3>My own cats' reservations</h3>
+  <div class="container summary bio">
+    <% @reservations_own_cats.each do |resa| %>
+      <div class="img-filter">
+        <div class="card-image-no-hover" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cloudinary_url(resa.user.photo) %>);">
+        </div>
+      </div>
+      <div>
+        <p>Duration : <%= resa.start_date %> - <%= resa.end_date %></p>
+        <p>Price : <%= resa.price %>$</p>
+        <p>By : <%= resa.user.first_name.capitalize %> <%= resa.user.last_name.capitalize %></p>
+      </div>
+      <div>
+        <%= simple_form_for([resa.cat, resa]) do |form| %>
+          <%= form.input :user_review, :label => "Content" %>
+          <%= form.input :user_rating, as: :select, collection: Reservation::RATING, include_blank:  "Select a rating", :label => "Rating" %>
+          <%= form.button :submit, "Review !", class: 'form-button' %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <h2>Bookings I made</h2>
+  <% @reservations_done_user.each do |resa| %>
+    <div>
+      <p>Duration : <%= resa.start_date %> - <%= resa.end_date %></p>
+      <p>Price : <%= resa.price %>$</p>
+      <p>Cat : <%= resa.cat.name %><%= cl_image_tag(resa.cat.photo, class:"avatar-large", id:"bio-avatar") %></p>
+    </div>
+    <div>
+      <%= simple_form_for([resa.cat, resa]) do |form| %>
+        <%= form.input :cat_review, :label => "Content" %>
+        <%= form.input :cat_rating, as: :select, collection: Reservation::RATING, include_blank:  "Select a rating" %>
+        <%= form.button :submit, "Review !", class: 'form-button' %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
