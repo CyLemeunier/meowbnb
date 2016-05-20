@@ -9,7 +9,13 @@
     <p>Price : <%= resa.price %></p>
     <p>Renter : <%= resa.user.first_name.capitalize %> <%= resa.user.last_name.capitalize %></p>
     <p>Photo : <%= cl_image_tag(resa.user.photo, class:"avatar-large", id:"bio-avatar") %></p>
-
+  </div>
+  <div>
+    <%= simple_form_for([resa.cat, resa]) do |form| %>
+      <%= form.input :user_review, :label => "Content" %>
+      <%= form.input :user_rating, as: :select, collection: Reservation::RATING, include_blank:  "Select a rating" %>
+      <%= form.button :submit, "Review !", class: 'form-button' %>
+    <% end %>
   </div>
 <% end %>
 
@@ -21,6 +27,13 @@
     <p>Price : <%= resa.price %>$</p>
     <p>Cat : <%= resa.cat.name %></p>
     <p>Photo : <%= cl_image_tag(resa.cat.photo, class:"avatar-large", id:"bio-avatar") %></p>
+  </div>
+  <div>
+    <%= simple_form_for([resa.cat, resa]) do |form| %>
+      <%= form.input :cat_review, :label => "Content" %>
+      <%= form.input :cat_rating, as: :select, collection: Reservation::RATING, include_blank:  "Select a rating" %>
+      <%= form.button :submit, "Review !", class: 'form-button' %>
+    <% end %>
   </div>
 <% end %>
 
