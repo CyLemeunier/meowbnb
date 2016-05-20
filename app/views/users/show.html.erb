@@ -48,7 +48,7 @@
   </div>
 
   <div id="my-bookings" class="container hidden">
-    <h4><li>People who booked your cats</li></h4>
+    <h4><i class="fa fa-user" aria-hidden="true"></i> - People who booked your cats</h4>
     <div class="container">
       <% @reservations_own_cats.each do |resa| %>
 
@@ -60,7 +60,7 @@
 
           <p>Duration : <%= resa.start_date %> - <%= resa.end_date %></p>
           <p>Price : <%= resa.price %>$</p>
-          <p>By : <%= resa.user.first_name.capitalize %> <%= resa.user.last_name.capitalize %></p>
+          <p>Cat : <%= resa.cat.name %></p>
 
           <div>
             <%= simple_form_for([resa.cat, resa]) do |form| %>
@@ -75,7 +75,7 @@
     </div>
     <hr>
 
-    <h4><li>Cats you've booked</li></h4>
+    <h4><i class="fa fa-paw" aria-hidden="true"></i> - Cats you've booked</h4>
     <% @reservations_done_user.each do |resa| %>
       <div style="display:flex; align-items:center; justify-content:space-around;">
 
