@@ -41,6 +41,7 @@ class CatsController < ApplicationController
   def show
     @reservation = Reservation.new
     @cat = Cat.find(params[:id])
+    @all_resa = Reservation.where(cat: @cat)
     @checkin = params[:checkin].blank? ? Date.today.strftime('%Y-%m-%d') : params[:checkin]
     @checkout = params[:checkout].blank? ? Date.today.strftime('%Y-%m-%d') : params[:checkout]
   end
