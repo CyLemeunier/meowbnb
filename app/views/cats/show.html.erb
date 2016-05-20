@@ -2,7 +2,7 @@
   <div class="container summary">
     <div class="bio">
       <h2 id="name"><%= @cat.name.capitalize %></h2>
-      <p><%= @cat.description.capitalize %></p>
+      <p><%= @cat.intro.capitalize %></p>
       <span id="cat age"></span>
       <p id="cat-price">$<%= @cat.price_per_day %>/Day</p>
     </div>
@@ -17,6 +17,20 @@
     <div class="row">
       <div class="col xs-12 col-sm-12 col-md-8" style="padding-right: 70px;"
 >
+        <div class="row section">
+          <div class='col xs-12 col-sm-3 col-md-3 center-sm'>
+          <i class="fa fa-paw"></i>
+          </div>
+          <div class='col xs-12 col-sm-9 col-md-9' id="owner-bio">
+            <p id="sub-title"> A little more about <%= @cat.name %></p>
+            <% if @cat.description %>
+                <p class="text"><%= @cat.description %></p>
+              <% else %>
+                <p class="text"> No descritpion for this cat yet! </p>
+            <% end %>
+          </div>
+        </div>
+        <hr>
         <div class="row section">
           <div class='col xs-12 col-sm-3 col-md-3 center-sm'>
           <i class="fa fa-heart"></i>
@@ -70,8 +84,8 @@
               <p id="sub-title">Meet the owner!</p>
               <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
-            <hr>
           </div>
+          <hr>
         </div>
       </div>
        <div class="col xs-12 col-sm-12 col-md-4">
@@ -79,7 +93,6 @@
         <%= render 'form_book_show_cat', checkin: @checkin, checkout: @checkout %>
       </div>
     </div>
-    <hr>
   </div>
   <div class="container cat-reviews-details">
     <div class="all-reviews">
