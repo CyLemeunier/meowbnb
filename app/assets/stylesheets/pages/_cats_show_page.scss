@@ -139,3 +139,12 @@
   font-size: 45px;
   color: $dark-grey;
 }
+
+
+
+.center-sm {
+  text-align: center;
+  @media (max-width: $screen-xs) {
+    text-align: left;
+  }
+}
