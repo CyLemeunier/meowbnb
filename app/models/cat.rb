@@ -14,7 +14,7 @@ class Cat < ActiveRecord::Base
   validates :intro, presence: true, length: {
     minimum: 10,
     maximum: 50,
-    too_short: "must have at least %{10} characters"
+    too_short: "must have at least %{10} characters",
     too_long: "can't have more than %{30} characters" }
   validates :price_per_day, presence: true
 

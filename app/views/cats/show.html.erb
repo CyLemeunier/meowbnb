@@ -23,7 +23,11 @@
           </div>
           <div class='col xs-12 col-sm-9 col-md-9' id="owner-bio">
             <p id="sub-title">How to take care of <%= @cat.name %></p>
-            <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+            <% if @cat.care_instructions %>
+                <p class="text"><%= @cat.care_instructions %></p>
+              <% else %>
+                <p class="text"> No care instructions yet! </p>
+            <% end %>
           </div>
         </div>
         <hr>
@@ -33,8 +37,11 @@
           </div>
           <div class='col xs-12 col-sm-9 col-md-9' id="owner-bio">
             <p id="sub-title">Diet and food directions</p>
-            <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </p>
+            <% if @cat.diet_instructions %>
+                <p class="text"><%= @cat.diet_instructions %></p>
+              <% else %>
+                <p class="text"> No diet instructions yet! </p>
+            <% end %>
           </div>
         </div>
         <hr>
@@ -44,8 +51,11 @@
           </div>
           <div class='col xs-12 col-sm-9 col-md-9' id="owner-bio">
             <p id="sub-title">Booking rules</p>
-            <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </p>
+            <% if @cat.booking_rules %>
+                <p class="text"><%= @cat.booking_rules %></p>
+              <% else %>
+                <p class="text"> No particular booking instructions yet! </p>
+            <% end %>
           </div>
         </div>
         <hr>
@@ -60,11 +70,11 @@
               <p id="sub-title">Meet the owner!</p>
               <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
+            <hr>
           </div>
         </div>
       </div>
-      <hr>
-      <div class="col xs-12 col-sm-12 col-md-4">
+       <div class="col xs-12 col-sm-12 col-md-4">
         <p id="sub-title">Book this cat now!</p>
         <%= render 'form_book_show_cat', checkin: @checkin, checkout: @checkout %>
       </div>

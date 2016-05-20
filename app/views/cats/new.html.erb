@@ -7,7 +7,10 @@
       <%= simple_form_for @cat do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
-          <%= f.input :name %>
+          <%= f.input :name, placeholder: 'John Snow' %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :intro, placeholder: 'Knows nothing' %>
         </div>
         <div class="form-inputs">
           <%= f.input :category, as: :select, collection: Cat::CATEGORIES, include_blank:  "Select a category"  %>
@@ -16,20 +19,29 @@
           <%= f.input :race, as: :select, collection: Cat::RACES, include_blank:  "Select a race" %>
         </div>
         <div class="form-inputs">
-          <%= f.input :year_of_birth %>
+          <%= f.input :year_of_birth, placeholder: '2015' %>
         </div>
         <div class="form-inputs">
-          <%= f.input :description %>
+          <%= f.input :description, placeholder: 'Fights wildings' %>
         </div>
         <div class="form-inputs">
-          <%= f.input :price_per_day %>
+          <%= f.input :care_instructions, placeholder: 'No baths, please!' %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :diet_instructions, placeholder: 'Eats raw meat only.' %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :booking_rules, placeholder: 'Pickup times from 5PM-9PM.' %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :price_per_day, placeholder: '57' %>
         </div>
         <div class="form-inputs">
           <%= f.input :photo %>
         </div>
         <%= f.input :photo_cache, as: :hidden %>
         <div class="form-actions text-center">
-          <%= f.button :submit, "Submit", style: 'width:100%' %>
+          <%= f.button :submit, "Submit", style: 'width:100%', class: 'form-button' %>
         </div>
       <% end %>
     </div>

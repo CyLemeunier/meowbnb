@@ -7,7 +7,10 @@
       <%= simple_form_for @cat do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
-          <%= f.input :name %>
+          <%= f.input :name%>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :intro %>
         </div>
         <div class="form-inputs">
           <%= f.input :category, as: :select, collection: Cat::CATEGORIES, include_blank:  "Select a category"  %>
@@ -20,6 +23,15 @@
         </div>
         <div class="form-inputs">
           <%= f.input :description %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :care_instructions %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :diet_instructions %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :booking_rules %>
         </div>
         <div class="form-inputs">
           <%= f.input :price_per_day %>

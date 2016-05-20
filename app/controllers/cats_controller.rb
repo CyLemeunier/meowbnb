@@ -76,11 +76,11 @@ class CatsController < ApplicationController
   private
 
   def cat_create_params
-    params.require(:cat).permit(:name, :category, :race, :year_of_birth, :description, :price_per_day, :photo)
+    params.require(:cat).permit(:name, :category, :race, :year_of_birth, :description, :price_per_day, :photo, :intro, :care_instructions, :diet_instructions, :booking_rules)
   end
 
   def cat_update_params
-    params.require(:cat).permit(:name, :category, :race, :year_of_birth, :description, :price_per_day, :photo)
+    params.require(:cat).permit(:name, :category, :race, :year_of_birth, :description, :price_per_day, :photo, :intro, :care_instructions, :diet_instructions, :booking_rules)
   end
 
   def cat_params
