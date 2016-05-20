@@ -1,5 +1,12 @@
 class ReservationsController < ApplicationController
 
+  def index
+    # lister les réservations du cat qui appartient au current_user
+    @reservations_own_cats = Reservation.where(cat: current_user.cats)
+    # lister les réservations faites par le current_user
+    @reservations_done_user = Reservation.where(user: current_user)
+  end
+
   def new
     @reservation = Reservation.new
   end

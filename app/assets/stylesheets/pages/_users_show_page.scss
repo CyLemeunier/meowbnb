@@ -1,3 +1,23 @@
 #users_show_page {
   min-height: 700px;
 }
+
+.top-title-alignment {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 40px 0;
+
+  h3, p {
+    margin: 0;
+  }
+
+  .user-buttons {
+    margin-left: 50px;
+  }
+
+  .user-title {
+    margin-left: 10px;
+  }
+
+}
