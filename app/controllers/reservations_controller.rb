@@ -1,5 +1,10 @@
 class ReservationsController < ApplicationController
 
+  def index
+    @reservations_own_cat
+    @reservations_done_user
+  end
+
   def new
     @reservation = Reservation.new
   end
