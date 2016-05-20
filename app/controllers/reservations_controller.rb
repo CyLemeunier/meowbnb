@@ -33,7 +33,7 @@ class ReservationsController < ApplicationController
     @cat = Cat.find(params[:cat_id])
     @reservation = Reservation.find(params[:id])
     if @reservation.update(reservation_update_params)
-      redirect_to cat_reservations_path(@cat)
+      redirect_to user_path(current_user)
     end
 
   end
