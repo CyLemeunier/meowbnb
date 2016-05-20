@@ -30,6 +30,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @reservations_own_cats = Reservation.where(cat: current_user.cats)
+    @reservations_done_user = Reservation.where(user: current_user)
     @user = User.find(params[:id])
   end
 end
