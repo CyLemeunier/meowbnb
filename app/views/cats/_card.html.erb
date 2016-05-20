@@ -1,23 +1,22 @@
 <div class="card">
   <div class="cat-picture">
-    <%= link_to cat_path(cat.id, checkin: checkin, checkout: checkout) do %>
+    <%= link_to cat_path(cat.id) do %>
       <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cloudinary_url(cat.photo) %>);">
       </div>
     <% end %>
     <div class="cat-categories">
       <%= link_to category_path(cat.category) do %>
-        <p id="categories">#<%= cat.category %></p>
+        <p id="categories">#<%= cat.category.capitalize %></p>
       <% end %>
     </div>
     <div class="cat-races">
       <%= link_to race_path(cat.race) do %>
-      <p id="races">#<%= cat.race %></p>
+      <p id="races">#<%= cat.race.capitalize %></p>
       <% end %>
     </div>
-    <div class="cat-name">
+    <div class="cats-name">
       <h2><%= cat.name.capitalize %></h2>
     </div>
-    <%#= link_to "", cat_path(cat.id), class: "card-link" %>
   </div>
   <div class="card-content">
     <div class="class card-content-top-items">

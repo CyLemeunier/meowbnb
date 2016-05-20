@@ -1,3 +1,14 @@
+<%if @user === current_user %>
+
+  <div class="container">
+    <div class="tabs">
+      <%= link_to "Your Listings", listings_path(@user.cats), class: "tab active" %>
+      <%= link_to "Your Bookings", listings_path(@user.cats), class: "tab" %>
+      <%= link_to "Profile", listings_path(@user.cats), class: "tab" %>
+    </div>
+  </div>
+<% end %>
+
 <div class="container" id="users_show_page">
   <h3><%= @user.first_name + " " + @user.last_name %></h3>
   <p><%= @user.city %></p>
@@ -7,7 +18,6 @@
         <%= render "card", cat: c %>
       </div>
     <% end %>
-
   </div>
   <%if @user == current_user %>
     <%= link_to "Add a cat", new_cat_path, class: "navbar-wagon-item navbar-wagon-button btn" %>

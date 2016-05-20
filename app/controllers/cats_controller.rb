@@ -53,6 +53,10 @@ class CatsController < ApplicationController
     @cats = Cat.where(race: params[:race])
   end
 
+  def display_by_user
+    @cats = Cat.where(user: params[:user])
+  end
+
   def destroy
     @cat = Cat.find(params[:id])
     @cat.destroy
