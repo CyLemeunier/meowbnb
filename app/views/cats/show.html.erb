@@ -101,7 +101,9 @@
         <% @all_resa.each do |resa| %>
           <ul class="list-inline">
             <li><%= resa.cat_review %></li>
-            <%= ('<i class="fa fa-star"></i>' * resa.cat_rating).html_safe %>
+            <% if resa.cat_rating %>
+              <%= ('<i class="fa fa-star"></i>' * resa.cat_rating).html_safe %>
+            <% end %>
           </ul>
         <% end %>
       </ul>
