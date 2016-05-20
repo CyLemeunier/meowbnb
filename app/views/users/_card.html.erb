@@ -1,15 +1,19 @@
 <div class="card">
-  <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cat.photo %>);">
+<div class="cat-picture">
+  <%= link_to cat_path(cat.id) do %>
+    <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cloudinary_url(cat.photo) %>);">
+    </div>
+    <% end %>
     <div class="cat-categories">
       <p id="category" >#<%= cat.category.capitalize %></p>
     </div>
     <div class="cat-race">
       <p id="race" >#<%= cat.race.capitalize %></p>
     </div>
-    <div class="cat-name">
+    <div class="cats-name">
       <h2><%= cat.name.capitalize %></h2>
     </div>
-  </div>
+</div>
   <div class="card-content">
     <div class="cat-booking-details">
       <span class="cat-price">$<%= cat.price_per_day %>/Day</span>

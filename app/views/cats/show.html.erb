@@ -7,7 +7,7 @@
       <p id="cat-price">$<%= @cat.price_per_day %>/Day</p>
     </div>
     <div class="img-filter">
-      <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cloudinary_url(@cat.photo) %>);">
+      <div class="card-image-no-hover" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cloudinary_url(@cat.photo) %>);">
       </div>
       <span class="cat-category" id="category" >#<%= @cat.category %></span>
       <span class="cat-race" id="race">#<%= @cat.race.capitalize %></span>

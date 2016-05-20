@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
 
   get 'cats/categories/:category', to: 'cats#display_by_category', as: 'category'
-
   get 'cats/races/:race', to: 'cats#display_by_race', as: 'race'
+  get 'cats/user/:user', to: 'cats#display_by_user', as: 'listings'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
