@@ -1,1 +1,27 @@
 <h1>affichage des bookings</h1>
+
+<h2>My own cats' reservations</h2>
+
+<% @reservations_own_cats.each do |resa| %>
+  <div>
+    <p>Start_date : <%= resa.start_date %></p>
+    <p>End_date : <%= resa.end_date %></p>
+    <p>Price : <%= resa.price %></p>
+    <p>Renter : <%= resa.user.first_name.capitalize %> <%= resa.user.last_name.capitalize %></p>
+    <p>Photo : <%= cl_image_tag(resa.user.photo, class:"avatar-large", id:"bio-avatar") %></p>
+
+  </div>
+<% end %>
+
+<h2>Bookings I made</h2>
+<% @reservations_done_user.each do |resa| %>
+  <div>
+    <p>Start_date : <%= resa.start_date %></p>
+    <p>End_date : <%= resa.end_date %></p>
+    <p>Price : <%= resa.price %>$</p>
+    <p>Cat : <%= resa.cat.name %></p>
+    <p>Photo : <%= cl_image_tag(resa.cat.photo, class:"avatar-large", id:"bio-avatar") %></p>
+  </div>
+<% end %>
+
+
