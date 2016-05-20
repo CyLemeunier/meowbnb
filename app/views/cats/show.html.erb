@@ -98,18 +98,12 @@
     <div class="all-reviews">
       <p id="reviews-title">Reviews for <%= @cat.name %></p>
       <ul class="review-text" style="list-style-type:none">
-        <ul class="list-inline">
-          <li>HATE this cat! Would never recommend 1</li>
-          <i class="fa fa-star"></i>
-        </ul>
-        <ul class="list-inline">
-          <li>The worst feline in feline history</li>
-          <i class="fa fa-star"></i>
-        </ul>
-        <ul class="list-inline">
-          <li>Do NOT rent this cat if you mean to stay alive</li>
-          <i class="fa fa-star"></i>
-        </ul>
+        <% @all_resa.each do |resa| %>
+          <ul class="list-inline">
+            <li><%= resa.cat_review %></li>
+            <%= ('<i class="fa fa-star"></i>' * resa.cat_rating).html_safe %>
+          </ul>
+        <% end %>
       </ul>
     </div>
   </div>
