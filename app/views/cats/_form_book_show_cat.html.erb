@@ -7,9 +7,15 @@
     <%= f.input :end_date, as: :string, input_html: {value: checkout, class: "datepicker" }, :label => "Checkout" %>
   </div>
   <div>
-    <p>Price : <%= @cat.price_per_day %>€ * <%= ((Date.strptime(checkout) - Date.strptime(checkin)).to_i) %> jours = <%= @cat.price_per_day*((Date.strptime(checkout) - Date.strptime(checkin)).to_i) %>€</p>
+    <% if ((Date.strptime(checkout) - Date.strptime(checkin)).to_i) == 1 %>
+      <p>Price : <%= @cat.price_per_day %>€ * <%= ((Date.strptime(checkout) - Date.strptime(checkin)).to_i) %>
+      jour = <%= @cat.price_per_day*((Date.strptime(checkout) - Date.strptime(checkin)).to_i) %>€</p>
+    <% else %>
+      <p>Price : <%= @cat.price_per_day %>€ * <%= ((Date.strptime(checkout) - Date.strptime(checkin)).to_i) %>
+      jours = <%= @cat.price_per_day*((Date.strptime(checkout) - Date.strptime(checkin)).to_i) %>€</p>
+    <% end %>
   </div>
   <div class="form-actions text-center">
-    <%= f.button :submit, "Book !", style: 'width:100%' %>
+    <%= f.button :submit, "Book !", style: 'width:100%', class: 'form-button'  %>
   </div>
 <% end %>

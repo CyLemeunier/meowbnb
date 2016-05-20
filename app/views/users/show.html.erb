@@ -21,7 +21,9 @@
         <%= render "card", cat: c %>
       </div>
     <% end %>
+
   </div>
+<<<<<<< HEAD
 
   <div>
     <ul>
@@ -30,4 +32,10 @@
       <% end %>
     </ul>
   </div>
+=======
+  <%if @user == current_user %>
+    <%= link_to "Add a cat", new_cat_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to "Edit profile", edit_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+  <% end %>
+>>>>>>> 14aff6b5af5f1108d09d724f4b33b8d069c21f16
 </div>
